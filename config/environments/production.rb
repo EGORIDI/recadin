@@ -80,6 +80,11 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  # Egoridi - Setting the cable's server URI for production
+  config.web_socket_server_url = "wss://evening-scrubland-61661.herokuapp.com/cable"
+  # Egoridi - Allowing request origins
+  config.action_cable.allowed_request_origins = ['https://evening-scrubland-61661.herokuapp.com', 'http://evening-scrubland-61661.herokuapp.com/login']
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
